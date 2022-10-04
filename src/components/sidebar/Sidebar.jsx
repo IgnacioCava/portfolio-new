@@ -1,30 +1,25 @@
 import styled from "styled-components"
-import {me, usericon, projects, skill, contact, githubicon, linkedinround} from '../../assets'
+import { me } from '../../assets'
 import SideIcon from "./SideIcon"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { tabs, socials } from './sidebarData'
+import { indexOf } from "../../helpers"
 
-export const Sidebar = () => {
+const Sidebar = ({onChange, page}) => {
 
     const [isOpen, setIsOpen] = useState(false)
-    const [selected, setSelected] = useState("About")
+    const [selected, setSelected] = useState(tabs[0].name)
     const [position, setPosition] = useState(0)
-
-    const pages = [
-        {name: "About", icon: usericon},
-        {name: "Skills", icon: skill},
-        {name: "Projects", icon: projects},
-        {name: "Contact", icon: contact}
-    ]
-
-    const socials = [
-        {name: "Github", icon: githubicon},
-        {name: "LinkedIn", icon: linkedinround}
-    ]
 
     const handleSelect = (name, index) => {
         setSelected(name)
+        onChange(name.toLowerCase())
         setPosition(index)
     }
+
+    useEffect(() => {
+        if(page !== selected) handleSelect(page, indexOf(page, tabs.map(({name})=>name)))
+    }, [page])
 
     return (
         <SidebarContainer onMouseEnter={()=>setIsOpen(true)} onMouseLeave={()=>setIsOpen(false)}>
@@ -34,7 +29,7 @@ export const Sidebar = () => {
             <Div>
                 <Con>
                 <Test adjust={position} extend={isOpen}/>
-                    {pages.map((link, index) => 
+                    {tabs.map((link, index) => 
                         <SideIcon key={index} data={link} extend={isOpen} select={()=>handleSelect(link.name, index)} highlight={selected}/>
                     )}
                 </Con>
@@ -49,11 +44,13 @@ export const Sidebar = () => {
     )
 }
 
+export default Sidebar
+
 const Test = styled.span`
 position: absolute;
-top: calc(${props => props.adjust*26.5}%);
-width: ${props => props.extend ? "calc(100% - 20px)" : "100%"};
-border-radius: ${props => props.extend ? "10px" : "10px 0 0 10px"};
+top: ${p => p.adjust*26.5}%;
+width: ${p => p.extend ? "calc(100% - 20px)" : "100%"};
+border-radius: ${p => p.extend ? "10px" : "10px 0 0 10px"};
 z-index: 0;
 height: 50px;
 background: #232526;
@@ -82,7 +79,7 @@ const Me = styled.img`
 `
 
 const Con = styled.div`
-position: relative;
+    position: relative;
     gap:15px;
     width: 100%;
     display:flex;
@@ -94,7 +91,10 @@ position: relative;
 `
 
 const SidebarContainer = styled.div`
+position: absolute;
+    margin: auto 0;
     width: 75px;
+    min-width: 75px;
     height: 90%;
     inset: 0px;
     gap:10px;
@@ -107,10 +107,9 @@ const SidebarContainer = styled.div`
     justify-content: space-between;
     box-sizing: border-box;
     box-shadow: -5px 12px 8px rgba(0,0,0,0.5);
-    :hover{
-        width: 150px;
-    }
     transition: .5s;
+    z-index: 10;
+    :hover{
+        min-width: 180px;
+    }
 `
-
-export default Sidebar

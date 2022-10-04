@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 const SideIcon = ({ data, extend, select, highlight }) => {
-    const { name, icon } = data;
+    const { name, icon, link } = data;
     return (
         <SideIconContainer extend={extend} onClick={select} highlight={name===highlight}>
             <Icon src={icon} alt="icon"/>
             <TextContainer>
-                <Text extend={extend} highlight={name===highlight}>{name}</Text>
+                <Text extend={extend} highlight={name===highlight}
+                onClick={() => {
+                    link && window.open(link, link)
+                }}
+                >{name}</Text>
             </TextContainer>
         </SideIconContainer>
     )
@@ -34,6 +38,7 @@ const Text = styled.span`
     transition-property: width, right, left, color;
     user-select: none;
     z-index: 1;
+    text-transform: capitalize;
 `
 
 const Icon = styled.img`
