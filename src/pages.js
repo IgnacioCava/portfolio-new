@@ -1,4 +1,4 @@
-import { me, apollo, express, figma, firebase, git, graphql, js, mongodb, node, react, redux, sass, styled, postgresql, sequelize, ts, linkedinicon, linkedinround, mylinkedin, mygithub, githubicon, trainingapp, weatherapp, foodapp, eventsapp } from './assets';
+import { me, apollo, express, figma, firebase, git, graphql, js, mongodb, node, react, redux, sass, styled, postgresql, sequelize, ts, linkedinround, mylinkedin, mygithub, githubicon, weatherapp, foodapp, trelloapp, countriesapp } from './assets';
 import { FrontendIcon, BackendIcon } from './assets/svg';
 
 export const pages = {
@@ -19,12 +19,12 @@ export const pages = {
             {
                 title: "Frontend development",
                 icon: FrontendIcon(),
-                text: "I develop beautiful, scalable, fully responsive applications, always adapted to the user’s needs."
+                text: "I develop beautiful, scalable, fully responsive applications, always taylored to the user’s needs."
             },
             {
                 title: "Backend development",
                 icon: BackendIcon(),
-                text: "Untangled coding ensures quick feature implementation and readability. Aimed at reaching the best performance for a seamless, lagless experience."
+                text: "Efficient coding ensures quick feature implementation and readability."
             }
         ],
         bulletin:{
@@ -37,7 +37,7 @@ export const pages = {
         title: "my skills",
         mini: "some of",
         text: {
-            normal: ["I’m a Full Stack Web Developer with an ambition-fueled desire for constant growth and self improvement. I’m passionate about learning new tecnologies, always pointing towards finding the most versatile and robust solutions possible."]
+            normal: ["I’m a Full Stack Web Developer with a desire for constant growth and self improvement. I’m passionate about learning new technologies, always pointing towards finding the most versatile and robust solutions."]
         },
         skills: [
             {
@@ -53,7 +53,16 @@ export const pages = {
                 ]
             },
             {
-                title: "Experience"
+                title: "Experience",
+                list: [
+                    `Software Developer at Remotebase
+                    March 2022 - Present
+                    
+                    Worked designing and developing a Web3 based social media site.
+
+                    Enhanced communication performance within the site with emphasis on
+                    real-time video and audio streaming.`
+                ]
             }
         ],
         bulletin:{
@@ -81,22 +90,35 @@ export const pages = {
     projects: {
         title: 'my projects',
         mini: 'these are',
-        skills: [{
-            title: 'xd'
-        }],
+        skills: [
+            {
+                title: 'Some of the SPAs I’ve worked on, with more to come',
+                list: [
+                    {title: "Trello Clone", icon: trelloapp, tags: [react, styled, node, express, mongodb, sequelize], deployment:'https://trelloclone2-client.vercel.app/', github:'https://github.com/IgnacioCava/trelloclone2',
+                    description: `A Trello clone where users can create and share their boards.
+                    Implemented frontend performance techniques like Optimistic UI and useMemo/useCallback hooks.`},
+                    {title: "Countries App", icon: countriesapp, tags: [react, ts, styled, graphql], deployment:'https://kimche-challenge-ignaciocava.vercel.app/', github:'https://github.com/IgnacioCava/kimche-challenge',
+                    description: `A simple app where users can search and see data about all countries.
+                    Developed using GraphQL and Typescript (everywhere).`},
+                    {title: "Food Recipes App", icon: foodapp, tags: [react, redux, styled, express, node, postgresql], deployment:'https://foodpi-front.herokuapp.com/', github:'https://github.com/IgnacioCava/Food',
+                    description: 'Individual proyect at Henry. A responsive SPA that let\'s you search and filter recipes brought from an external API, as well as creating your own recipes and storing them in a relational database.'},
+                    {title: "Weather App", icon: weatherapp, tags: [react], deployment:'https://weathernacho.netlify.app/', github:'https://github.com/IgnacioCava/WeatherReport',
+                    description: 'My first project at the Henry Fullstack web development bootcamp with which I practiced my React, CSS and API usage abilities. A responsive SPA that takes information from an external API, bringing you weather data of whatever location in the world, like current temperature, weather cast, time of day, as well as counting with geolocation services.'},
+                ]
+            }
+        ],
         bulletin: {
-            // title: 'my projects',
             images: [
-                {src: trainingapp, label: "Traing", deployment:'', github:''},
-                {src: weatherapp, label: "Weather", deployment:'', github:''},
-                {src: foodapp, label: "food", deployment:'', github:''},
-                {src: eventsapp, label: "event", deployment:'', github:''},
+                {src: trelloapp, label: "Trello Clone", deployment:'https://trelloclone2-client.vercel.app/', github:'https://github.com/IgnacioCava/trelloclone2'},
+                {src: countriesapp, label: "Countries App", deployment:'https://kimche-challenge-ignaciocava.vercel.app/', github:'https://github.com/IgnacioCava/kimche-challenge'},
+                {src: weatherapp, label: "Weather App", deployment:'https://weathernacho.netlify.app/', github:'https://github.com/IgnacioCava/WeatherReport'},
+                {src: foodapp, label: "Food Recipes App", deployment:'https://foodpi-front.herokuapp.com/', github:'https://github.com/IgnacioCava/Food'},
             ]
         }
     },
     contact: {
-        title: 'let\'s talk',
-        mini: 'now\'s the moment, ',
+        title: 'let’s talk',
+        mini: 'now’s the moment, ',
         text:{
             normal: [
                 "You can reach me out through LinkedIn, Github, or by sending me an email.",

@@ -28,7 +28,7 @@ const Sidebar = ({onChange, page}) => {
             
             <Div>
                 <Con>
-                <Test adjust={position} extend={isOpen}/>
+                    <Test adjust={position} extend={isOpen}/>
                     {tabs.map((link, index) => 
                         <SideIcon key={index} data={link} extend={isOpen} select={()=>handleSelect(link.name, index)} highlight={selected}/>
                     )}
@@ -91,7 +91,7 @@ const Con = styled.div`
 `
 
 const SidebarContainer = styled.div`
-position: absolute;
+    position: absolute;
     margin: auto 0;
     width: 75px;
     min-width: 75px;
@@ -108,7 +108,7 @@ position: absolute;
     box-sizing: border-box;
     box-shadow: -5px 12px 8px rgba(0,0,0,0.5);
     transition: .5s;
-    z-index: 10;
+    z-index: 100;
     :hover{
         min-width: 180px;
     }

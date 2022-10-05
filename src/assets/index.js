@@ -28,6 +28,8 @@ import foodapp from './foodapp.png';
 import trainingapp from './trainingapp.png';
 import weatherapp from './weatherapp.png';
 import eventsapp from './eventsapp.png';
+import trelloapp from './trelloapp.png'
+import countriesapp from './countriesapp.png'
 
 export {
     apollo,
@@ -59,5 +61,7 @@ export {
     weatherapp,
     eventsapp,
     mylinkedin,
-    mygithub
+    mygithub,
+    trelloapp,
+    countriesapp
 }

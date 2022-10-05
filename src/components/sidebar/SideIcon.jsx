@@ -3,14 +3,13 @@ import styled from "styled-components";
 const SideIcon = ({ data, extend, select, highlight }) => {
     const { name, icon, link } = data;
     return (
-        <SideIconContainer extend={extend} onClick={select} highlight={name===highlight}>
+        <SideIconContainer extend={extend} highlight={name===highlight} onClick={() => {
+            select && select()
+            link && window.open(link, link)
+            }}>
             <Icon src={icon} alt="icon"/>
             <TextContainer>
-                <Text extend={extend} highlight={name===highlight}
-                onClick={() => {
-                    link && window.open(link, link)
-                }}
-                >{name}</Text>
+                <Text extend={extend} highlight={name===highlight}>{name}</Text>
             </TextContainer>
         </SideIconContainer>
     )

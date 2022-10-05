@@ -17,7 +17,7 @@ function App() {
     </MainApp>
   );
 }
-//                                   ['about', 'projects'].includes(page)
+
 const MainApp = styled.div`
   background-size: 150%;
   background-position-x: ${({page}) => page === 'about' || page === 'projects' ? 'left' : 'right'};

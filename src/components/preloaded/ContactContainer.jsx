@@ -1,6 +1,6 @@
-import { pages, contact } from "../../pages"
+import { contact } from "../../pages"
 import styled from "styled-components"
-import { Scrollable, Section } from "../../styleConfig/scroll"
+import { Section } from "../../styleConfig/scroll"
 
 
 const Contact = () => {
@@ -19,14 +19,14 @@ const Contact = () => {
 export default Contact
 
 const Link = styled.a`
-background-image: ${({src}) => `url(${src})`};
-height: 100%;
-background-size: 90% auto;
-background-repeat: no-repeat;
-background-position: center;
-transition: 1s;
-position: absolute;
-right: 0;
+    background-image: ${({src}) => `url(${src})`};
+    height: 100%;
+    background-size: 90% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: .7s;
+    position: absolute;
+    right: 0;
 `
 
 const Image = styled.div`

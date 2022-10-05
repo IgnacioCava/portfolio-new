@@ -41,24 +41,3 @@ const Image = styled.div`
         height: fit-content;
     }
 `
-
-// const skills = lazy(() => <SkillsContainer ref={scrollRef}>
-//     {pages.skills.bulletin.images.map((image, index) => 
-//     <Image key={index}>
-//         <img loading={"loading" in HTMLImageElement.prototype ? 'lazy' : undefined} src={image.src} alt={image.label || 'skill'}/>
-//         <span>{image.label}</span>
-//     </Image>
-//     )}
-
-// const SkillsContainer = styled(Scrollable).attrs({overflow: 'hidden', behaviour: 'smooth'})`
-//     display: flex;
-//     flex-direction: row;
-//     width: 100%;
-//     flex-wrap: wrap; 
-//     justify-content: flex-start;
-//     gap: 0 5%;
-//     padding-inline: .5rem;
-//     margin-block: .5rem;
-//     box-sizing: border-box;
-//     height: 100%;
-// `

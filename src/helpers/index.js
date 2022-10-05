@@ -15,7 +15,7 @@ export const useAutoScrollRef = (Hz, elementsToMove, deps) => {
     // https://github.com/facebook/react/issues/14476#issuecomment-471199055
 
     Hz = (1/Hz)*1000
-    console.log('xd')
+
     const [resized, setResized] = useState(0)
     const [hover, setHover] = useState(false)
 
