@@ -3,6 +3,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Page from './pages/Page';
 import { pages } from './pages';
 import styled from 'styled-components';
+import { device } from './styleConfig';
 
 import { useState } from 'react';
 
@@ -24,6 +25,9 @@ const MainApp = styled.div`
   background-position-y: ${({page}) => page === 'about' || page === 'skills' ? 'top' : 'bottom'};
   transition: 1s;
   transition-property: background-position;
+  @media ${device.laptop}{
+    background-size: auto;
+  }
 `
 
 export default App;

@@ -7,7 +7,7 @@
   align-items: center;
   font-family: 'Poppins';
   background-image: url('./assets/mainbg.png');
-  background-blend-mode: hard-light;
+  background-blend-mode: darken;
   overflow: hidden;
 }
 

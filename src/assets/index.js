@@ -30,6 +30,7 @@ import weatherapp from './weatherapp.png';
 import eventsapp from './eventsapp.png';
 import trelloapp from './trelloapp.png'
 import countriesapp from './countriesapp.png'
+import CV from './CV Ignacio Cava.pdf'
 
 export {
     apollo,
@@ -63,5 +64,6 @@ export {
     mylinkedin,
     mygithub,
     trelloapp,
-    countriesapp
+    countriesapp,
+    CV
 }

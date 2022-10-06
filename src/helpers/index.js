@@ -1,12 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 
-export const Capitalize = (string) => {
-    return string.charAt(0).toUpperCase() + string.substring(1)
-}
+export const Capitalize = (string) =>string.charAt(0).toUpperCase() + string.substring(1)
 
-export const indexOf = (element, array) => {
-    return array.findIndex(arrayElement => arrayElement === element)
-}
+export const indexOf = (element, array) => array.findIndex(arrayElement => arrayElement === element)
 
 export const useAutoScrollRef = (Hz, elementsToMove, deps) => {
     const elementRef = useRef(null)
@@ -22,18 +18,16 @@ export const useAutoScrollRef = (Hz, elementsToMove, deps) => {
     const scroll = useCallback(() => {
         const element = elementRef.current
         
-
-        if(!hover){ //setTimeout(() => {
+        if(!hover){
             const a = []
             for(let i = 0; i<elementsToMove; i++) a.push(element.children[i].cloneNode(true))
             a.forEach(e => element.appendChild(e))
             
             element.scrollBy({top: element.children[0].clientHeight, behaviour: 'smooth'})
             setTimeout(() => {
-
                 for(let i = 0; i<elementsToMove; i++) element.removeChild(element.firstChild)
             }, Hz/2)
-        }//}, Hz/2)
+        }
         
     }, [Hz, elementsToMove, hover])
     
@@ -58,3 +52,24 @@ export const useAutoScrollRef = (Hz, elementsToMove, deps) => {
 
     return elementRef
 }
+
+const hasDirection = (place, direction) => place.includes(direction)
+
+export const transition = (to, from) => {
+    const dir = [0,0,0]
+
+    if(hasDirection(from, 'left') !== hasDirection(to, 'left')){
+        dir[0] = hasDirection(to, 'left')? '7%' : '-7%'
+    }
+    if(hasDirection(to, 'top') !== hasDirection(from, 'top')){
+        dir[1] = hasDirection(to, 'top')? '7%' : '-7%'
+    }
+    
+    return dir.join()
+}
+
+const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w+)+$/
+
+export const emptyFields = (obj) => Object.values(obj).filter(e=>e).length < Object.keys(obj).length
+
+export const handleValidation = (email) => email && emailRegexp.test(email)

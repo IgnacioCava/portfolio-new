@@ -41,16 +41,8 @@ export const pages = {
         },
         skills: [
             {
-                title: "Soft Skills",
-                list: [
-                    "Quick, hands-on learner.",
-                    "Complete predisposition to teamwork and team learning.",
-                    "Critical thinker, capable of taking context-based decisions.",
-                    "Foresight of problems an implementation may cause.",
-                    "Problem solver.",
-                    "Strong written and verbal communication skills.",
-                    "High adaptability to new environments.",
-                ]
+                title: 'CV',
+                text: 'Click here to download my Curriculum',
             },
             {
                 title: "Experience",
@@ -62,6 +54,18 @@ export const pages = {
 
                     Enhanced communication performance within the site with emphasis on
                     real-time video and audio streaming.`
+                ]
+            },
+            {
+                title: "Soft Skills",
+                list: [
+                    "Quick, hands-on learner.",
+                    "Complete predisposition to teamwork and team learning.",
+                    "Critical thinker, capable of taking context-based decisions.",
+                    "Foresight of problems an implementation may cause.",
+                    "Problem solver.",
+                    "Strong written and verbal communication skills.",
+                    "High adaptability to new environments.",
                 ]
             }
         ],
@@ -117,8 +121,8 @@ export const pages = {
         }
     },
     contact: {
-        title: 'let’s talk',
         mini: 'now’s the moment, ',
+        title: 'let’s talk',
         text:{
             normal: [
                 "You can reach me out through LinkedIn, Github, or by sending me an email.",

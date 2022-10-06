@@ -1,22 +1,7 @@
-import styled from "styled-components";
 import PageContent from './PageContent'
 import Bulletin from './Bulletin'
-import {useState, useEffect, memo} from 'react'
-
-const hasDirection = (place, direction) => place.includes(direction)
-
-const transition = (to, from) => {
-    const dir = [0,0,0]
-
-    if(hasDirection(from, 'left') !== hasDirection(to, 'left')){
-        dir[0] = hasDirection(to, 'left')? '7%' : '-7%'
-    }
-    if(hasDirection(to, 'top') !== hasDirection(from, 'top')){
-        dir[1] = hasDirection(to, 'top')? '7%' : '-7%'
-    }
-    
-    return dir.join()
-}
+import { useState, useEffect, memo } from 'react'
+import { PageContainer, ResponsiveWrapper } from './styled'
 
 const directions = {
     about: 'top left',
@@ -44,45 +29,20 @@ const Page = ({current, page, setPage}) => {
             setCounterAnim(true)
             setTimeout(() => {
                 setCounterAnim(false)
-            }, 40)
+            }, 30)
         }, 400)
         return () => clearTimeout(loading)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [current])
 
-    
-
     return (
-        <PageContainer className={!changed ? `loaded ${counterAnim?'counterAnim':''}` : `loading`} counterAnim={counterAnim} to={directions[page]} from={directions[pageTitle]} prev={directions[previousPage] || ''}>
-            <PageContent page={pageData} setPage={setPage}/>
-            <Bulletin page={pageData.bulletin} title={pageTitle}/>
-        </PageContainer>
+        <ResponsiveWrapper>
+            <PageContainer className={!changed ? `loaded ${counterAnim?'counterAnim':''}` : `loading`} to={directions[page]} from={directions[pageTitle]} prev={directions[previousPage] || ''}>
+                <Bulletin page={pageData.bulletin} title={pageTitle}/>
+                <PageContent page={pageData} setPage={setPage}/>
+            </PageContainer>
+        </ResponsiveWrapper>    
     )
 }
-
-const PageContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    padding: 45px 5% 45px 10%;
-    box-sizing: border-box;
-    color: white;
-    opacity: 0;
-    transition: .4s cubic-bezier(0.39, 0.07, 0.51, 0.81);
-    &.loaded{
-        opacity: 1;
-    }
-    &.loading{
-        opacity: 0;
-        transform: translate3d(${({to, from}) => transition(to, from)});
-    }
-    &.counterAnim{
-        transition: 0s !important;
-        opacity: 0 !important;
-        transform: translate3d(${({prev, to}) => transition(prev, to)});
-    }
-
-`
 
 export default memo(Page);

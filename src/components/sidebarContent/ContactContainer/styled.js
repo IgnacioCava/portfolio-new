@@ -1,24 +1,7 @@
-import { contact } from "../../pages"
 import styled from "styled-components"
-import { Section } from "../../styleConfig/scroll"
+import { device } from "../../../styleConfig"
 
-
-const Contact = () => {
-    return (
-        <Section>
-            {contact.bulletin.images.map(({src, hoverSrc, label, link}, index) => 
-            <Image key={index}>
-                <img src={src} alt={label || 'social media'} id='normal-img'/>
-                <Link href={link} target={link} src={hoverSrc} id='hover-img' alt={label || 'social media'}/>
-            </Image>
-            )}
-        </Section>
-    )
-}
-
-export default Contact
-
-const Link = styled.a`
+export const Link = styled.a`
     background-image: ${({src}) => `url(${src})`};
     height: 100%;
     background-size: 90% auto;
@@ -27,9 +10,14 @@ const Link = styled.a`
     transition: .7s;
     position: absolute;
     right: 0;
+    background-origin: content-box;
+    box-sizing: border-box;
+    @media ${device.laptop}{
+        background-size: contain;
+    }
 `
 
-const Image = styled.div`
+export const Image = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
@@ -52,20 +40,19 @@ const Image = styled.div`
         text-align: center;
         height: fit-content;
     }
-    #hover-img{
+    ${Link}{
         cursor: pointer;
         width: 0%;
         max-height: 100%;
         background-color: white;
-        object-fit: contain;
-        
     }
     &:hover{
         #normal-img{
             width: 0%;
         }
-        #hover-img{ 
+        ${Link}{ 
             width: 100% !important;
+            padding: 10px;
         }  
     }
 `
