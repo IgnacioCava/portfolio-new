@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-color: #1d1e20b5;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins';
+  background-image: url('./assets/mainbg.png');
+  background-blend-mode: darken;
+  overflow: hidden;
 }
 
 .App-logo {

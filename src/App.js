@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './components/sidebar/Sidebar';
+import Page from './pages/Page';
+import { pages } from './pages';
+import styled from 'styled-components';
+import { device } from './styleConfig';
+
+import { useState } from 'react';
 
 function App() {
+
+  const [page, setPage] = useState("about");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainApp className="App" page={page}>
+      <Sidebar page={page} onChange={setPage}/>
+      <Page page={page} current={pages[page]} setPage={setPage}/>
+    </MainApp>
   );
 }
+
+const MainApp = styled.div`
+  background-size: 150%;
+  background-position-x: ${({page}) => page === 'about' || page === 'projects' ? 'left' : 'right'};
+  background-position-y: ${({page}) => page === 'about' || page === 'skills' ? 'top' : 'bottom'};
+  transition: 1s;
+  transition-property: background-position;
+  @media ${device.laptop}{
+    background-size: auto;
+  }
+`
 
 export default App;
